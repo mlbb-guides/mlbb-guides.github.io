@@ -26,7 +26,7 @@ const HEROES_DATA = {
 
     // ===== FIGHTERS (Official API URLs + Suyou Fallback) =====
     fighters: [
-        { name: "Suyou", tier: "S+", winRate: 58.2, img: getAvatar("Suyou", "#ef233c"), color: "#ef233c" }, // Not in API yet
+        { name: "Suyou", tier: "S+", winRate: 58.2, img: "https://static.wikia.nocookie.net/mobile-legends/images/c/c4/Hero1261-icon.png/revision/latest", color: "#ef233c" },
         { name: "Cici", tier: "S", winRate: 54.5, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/bc77a45f649d36befd844b767a0b66e2.png", color: "#fb8500" },
         { name: "Arlott", tier: "S", winRate: 53.1, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/bd640274b1595c6713c5c360c458a740.png", color: "#d90429" },
         { name: "Yu Zhong", tier: "A", winRate: 51.9, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/d53f0e10d58b1841219073c026febc51.jpg", color: "#ffd60a" },
@@ -59,7 +59,7 @@ const HEROES_DATA = {
 
     // ===== MAGES (Official API URLs + Zhuxin Fallback) =====
     mages: [
-        { name: "Zhuxin", tier: "S+", winRate: 56.5, img: getAvatar("Zhuxin", "#7209b7"), color: "#7209b7" }, // Not in API yet
+        { name: "Zhuxin", tier: "S+", winRate: 56.5, img: "https://static.wikia.nocookie.net/mobile-legends/images/0/05/Hero1251-icon.png/revision/latest", color: "#7209b7" },
         { name: "Valentina", tier: "S", winRate: 54.2, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/3fcfa9c74ac47800a3e13a5985d76e55.png", color: "#ff006e" },
         { name: "Vexana", tier: "S", winRate: 53.8, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/2334082b961a77941bc0f87e598bfabb.png", color: "#38b000" },
         { name: "Novaria", tier: "S", winRate: 53.1, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/233e528d55a4c6083bd914c2768ac50d.png", color: "#4cc9f0" },
@@ -156,7 +156,7 @@ const BUILDS_DATA = {
         tips: "New S-Tier Jungler. Tap S1 to chase, Hold S1 to stun. Sky Piercer executes low HP enemies.",
         counters: ["Phoveus", "Khufra"],
         counteredBy: ["Heavy CC", "Burst"],
-        img: getAvatar("Suyou", "#ef233c")
+        img: "https://static.wikia.nocookie.net/mobile-legends/images/c/c4/Hero1261-icon.png/revision/latest"
     },
     "Zhuxin": {
         role: "Mage",
@@ -167,7 +167,7 @@ const BUILDS_DATA = {
         tips: "Spam S2 to grab enemies. Wishing Lantern burn + Glowing Wand melts tanks. Mana management is key.",
         counters: ["Immobile Tanks", "Melee Fighters"],
         counteredBy: ["Ling", "Fanny", "Sprint users"],
-        img: getAvatar("Zhuxin", "#7209b7")
+        img: "https://static.wikia.nocookie.net/mobile-legends/images/0/05/Hero1251-icon.png/revision/latest"
     },
     "Chip": {
         role: "Support/Tank",
