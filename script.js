@@ -128,7 +128,15 @@ function initBuildPage() {
     const build = BUILDS_DATA[heroName];
     const role = heroData ? ROLES.find(r => r.id === heroData.roleId) : null;
 
+    // Get item icon
+    const getItemIcon = (itemName) => {
+        return ITEMS && ITEMS[itemName] ? ITEMS[itemName].icon : '📦';
+    };
+
     container.innerHTML = `
+        <div class="patch-badge" style="text-align:center;margin-bottom:20px;padding:10px;background:rgba(99,102,241,0.1);border-radius:8px;color:var(--text-muted);font-size:0.9rem;">
+            📅 Updated: ${typeof LAST_UPDATED !== 'undefined' ? LAST_UPDATED : 'December 2024'} | Patch ${typeof PATCH_VERSION !== 'undefined' ? PATCH_VERSION : '1.8.44'}
+        </div>
         <div class="build-header">
             <div class="build-hero-img-wrapper">
                 <img src="${heroData?.img || build?.img || ''}" alt="${heroName}" class="build-hero-img" onerror="this.outerHTML='<div class=build-hero-placeholder>🦸</div>'">
@@ -158,11 +166,35 @@ function initBuildPage() {
                     ${build.items.map((item, i) => `
                         <div class="item-slot">
                             <span class="slot-num">${i + 1}</span>
+                            <span class="item-icon">${getItemIcon(item)}</span>
                             <span class="item-name">${item}</span>
                         </div>
                     `).join('')}
                 </div>
             </div>
+            ${build.counters || build.counteredBy ? `
+            <div class="build-section">
+                <h2>⚔️ Counter Picks</h2>
+                <div class="counters-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                    ${build.counters ? `
+                    <div class="counter-box" style="padding:15px;background:rgba(34,197,94,0.1);border-radius:12px;border-left:3px solid #22c55e;">
+                        <h3 style="color:#22c55e;margin-bottom:10px;font-size:1rem;">✅ Strong Against</h3>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            ${build.counters.map(c => `<span style="padding:5px 12px;background:rgba(34,197,94,0.2);border-radius:20px;font-size:0.85rem;">${c}</span>`).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    ${build.counteredBy ? `
+                    <div class="counter-box" style="padding:15px;background:rgba(239,68,68,0.1);border-radius:12px;border-left:3px solid #ef4444;">
+                        <h3 style="color:#ef4444;margin-bottom:10px;font-size:1rem;">❌ Weak Against</h3>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            ${build.counteredBy.map(c => `<span style="padding:5px 12px;background:rgba(239,68,68,0.2);border-radius:20px;font-size:0.85rem;">${c}</span>`).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+            ` : ''}
             <div class="build-section">
                 <h2>💡 Pro Tips</h2>
                 <p class="tips-text">${build.tips}</p>
