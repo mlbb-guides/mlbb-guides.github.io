@@ -10,7 +10,7 @@
     <meta name="description"
         content="Get the best Mobile Legends hero builds! Optimized item builds, emblems, battle spells and pro tips for every hero. Updated for current patch!">
     <meta name="keywords"
-        content="MLBB builds, Mobile Legends item builds, best builds MLBB, hero builds, emblem builds, spell guide">
+        content="MLBB builds, Mobile Legends item builds, best builds MLBB, hero builds, emblem builds, spell guide, Sky Piercer build, Season 35 builds">
     <link rel="canonical" href="https://mlbb-guides.github.io/builds.html">
 
     <!-- Open Graph -->
@@ -21,142 +21,19 @@
     <meta property="og:url" content="https://mlbb-guides.github.io/builds.html">
     <meta property="og:image" content="https://mlbb-guides.github.io/images/og-banner.png">
 
+    <!-- Theme -->
+    <meta name="theme-color" content="#6366f1">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .build-header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            padding: 30px;
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            margin-bottom: 30px;
-        }
 
-        .build-hero-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/avatar.png">
 
-        .build-header h1 {
-            margin-bottom: 10px;
-        }
-
-        .build-header .tier {
-            margin-right: 15px;
-        }
-
-        .build-section {
-            background: var(--bg-card);
-            padding: 25px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-
-        .build-section h2 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .build-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .info-item {
-            padding: 15px;
-            background: var(--bg-card-hover);
-            border-radius: var(--radius);
-        }
-
-        .items-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-        }
-
-        .item-slot {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            background: var(--bg-card-hover);
-            border-radius: var(--radius);
-        }
-
-        .slot-num {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-
-        .tips-text {
-            color: var(--text-muted);
-            line-height: 1.8;
-            padding: 15px;
-            background: rgba(99, 102, 241, 0.1);
-            border-left: 3px solid var(--primary);
-            border-radius: 0 var(--radius) var(--radius) 0;
-        }
-
-        .no-hero {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .no-hero h2 {
-            margin-bottom: 20px;
-        }
-
-        .popular-heroes {
-            margin-top: 30px;
-        }
-
-        .popular-heroes h3 {
-            margin-bottom: 15px;
-            color: var(--text-muted);
-        }
-
-        .popular-list {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .popular-link {
-            padding: 10px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--text);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .popular-link:hover {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.1);
-        }
-    </style>
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6564476231402717"
         crossorigin="anonymous"></script>
@@ -164,40 +41,78 @@
 </head>
 
 <body>
+    <!-- Animated Background -->
     <div class="bg-animation">
         <div class="bg-gradient"></div>
     </div>
 
+    <!-- Floating Particles -->
+    <div class="particles"></div>
+
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo"><span>⚔️</span><span class="logo-text">MLBB<span
-                        class="accent">PRO</span></span></a>
+            <a href="index.html" class="logo" aria-label="MLBB Pro Guides Home">
+                <span>⚔️</span>
+                <span class="logo-text">MLBB<span class="accent">PRO</span></span>
+            </a>
+
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="tier-list.html" class="nav-link">Tier List</a></li>
                 <li><a href="heroes.html" class="nav-link">Heroes</a></li>
-                <li><a href="builds.html" class="nav-link active">Builds</a></li>
+                <li><a href="counter.html" class="nav-link">Counter</a></li>
+                <li><a href="random.html" class="nav-link">🎲</a></li>
             </ul>
+
             <a href="about.html" class="btn btn-glow">📧 Contact</a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <section class="tier-section">
-        <div class="container" style="max-width:800px;">
+        <div class="container" style="max-width:850px;">
             <div id="buildContainer">
-                <div class="no-hero">
-                    <h2>Select a Hero</h2>
-                    <p style="color:var(--text-muted);">Choose a hero from our <a href="heroes.html"
-                            style="color:var(--primary)">Heroes page</a> to view their build.</p>
+                <!-- Build content rendered by JS or shows default -->
+                <div class="page-header fade-in" style="text-align:center; margin-bottom:40px;">
+                    <div class="badge">🛠️ Pro Builds</div>
+                    <h1>Hero <span class="gradient-text">Builds</span></h1>
+                    <p>Optimized item builds, emblems, and battle spells for every hero</p>
+                </div>
 
-                    <div class="popular-heroes">
-                        <h3>Popular Builds</h3>
-                        <div class="popular-list">
-                            <a href="?hero=Chou" class="popular-link">⚔️ Chou</a>
-                            <a href="?hero=Ling" class="popular-link">🗡️ Ling</a>
-                            <a href="?hero=Beatrix" class="popular-link">🏹 Beatrix</a>
-                            <a href="?hero=Lancelot" class="popular-link">🗡️ Lancelot</a>
-                            <a href="?hero=Fanny" class="popular-link">🗡️ Fanny</a>
+                <div class="fade-in"
+                    style="text-align:center;padding:48px 20px;background:var(--gradient-card);border:1px solid var(--border);border-radius:var(--radius-lg);">
+                    <h2 style="margin-bottom:16px;font-size:1.6rem;">Select a Hero</h2>
+                    <p style="color:var(--text-muted);margin-bottom:32px;">
+                        Choose a hero from our <a href="heroes.html" style="color:var(--primary)">Heroes page</a> to
+                        view their complete build guide.
+                    </p>
+
+                    <div style="margin-bottom:24px;">
+                        <h3 style="margin-bottom:16px;color:var(--text-muted);font-size:1rem;">🔥 Popular Hero Builds
+                        </h3>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+                            <a href="?hero=Chou" class="btn btn-secondary btn-sm">⚔️ Chou</a>
+                            <a href="?hero=Ling" class="btn btn-secondary btn-sm">🗡️ Ling</a>
+                            <a href="?hero=Beatrix" class="btn btn-secondary btn-sm">🏹 Beatrix</a>
+                            <a href="?hero=Hayabusa" class="btn btn-secondary btn-sm">🗡️ Hayabusa</a>
+                            <a href="?hero=Fanny" class="btn btn-secondary btn-sm">🗡️ Fanny</a>
+                            <a href="?hero=Kagura" class="btn btn-secondary btn-sm">🔮 Kagura</a>
+                            <a href="?hero=Tigreal" class="btn btn-secondary btn-sm">🛡️ Tigreal</a>
+                            <a href="?hero=Mathilda" class="btn btn-secondary btn-sm">💚 Mathilda</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom:16px;color:var(--text-muted);font-size:1rem;">⚡ New Season 35 Meta</h3>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+                            <a href="?hero=Suyou" class="btn btn-gold btn-sm">🆕 Suyou</a>
+                            <a href="?hero=Zhuxin" class="btn btn-gold btn-sm">🆕 Zhuxin</a>
                         </div>
                     </div>
                 </div>
@@ -205,15 +120,31 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand"><span>⚔️</span> MLBB<span class="accent">PRO</span>
+                <div class="footer-brand">
+                    <span>⚔️</span> MLBB<span class="accent">PRO</span>
                     <p>The ultimate MLBB resource</p>
                 </div>
-                <div class="footer-links"><a href="tier-list.html">Tier List</a><a href="heroes.html">Heroes</a><a
-                        href="builds.html">Builds</a></div>
+                <div class="footer-links">
+                    <a href="tier-list.html">Tier List</a>
+                    <a href="heroes.html">Heroes</a>
+                    <a href="builds.html">Builds</a>
+                    <a href="about.html">About</a>
+                </div>
             </div>
+
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@TheHistoryCode125" target="_blank" rel="noopener">
+                    ▶️ YouTube
+                </a>
+                <a href="https://discord.gg/K3JYAMU" target="_blank" rel="noopener">
+                    💬 Discord
+                </a>
+            </div>
+
             <p class="copyright">&copy; 2025 MLBB Pro Guides. Not affiliated with Moonton.</p>
         </div>
     </footer>

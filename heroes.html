@@ -10,7 +10,7 @@
     <meta name="description"
         content="Browse all 120+ Mobile Legends heroes. Filter by role - Tank, Fighter, Assassin, Mage, Marksman, Support. See win rates and tier rankings!">
     <meta name="keywords"
-        content="MLBB heroes, Mobile Legends heroes list, all heroes MLBB, hero roles, tank heroes, fighter heroes, assassin heroes">
+        content="MLBB heroes, Mobile Legends heroes list, all heroes MLBB, hero roles, tank heroes, fighter heroes, assassin heroes, mage heroes, marksman heroes, support heroes">
     <link rel="canonical" href="https://mlbb-guides.github.io/heroes.html">
 
     <!-- Open Graph -->
@@ -20,11 +20,19 @@
     <meta property="og:url" content="https://mlbb-guides.github.io/heroes.html">
     <meta property="og:image" content="https://mlbb-guides.github.io/images/og-banner.png">
 
+    <!-- Theme -->
+    <meta name="theme-color" content="#6366f1">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/avatar.png">
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6564476231402717"
         crossorigin="anonymous"></script>
@@ -32,39 +40,57 @@
 </head>
 
 <body>
+    <!-- Animated Background -->
     <div class="bg-animation">
         <div class="bg-gradient"></div>
     </div>
 
+    <!-- Floating Particles -->
+    <div class="particles"></div>
+
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo"><span>⚔️</span><span class="logo-text">MLBB<span
-                        class="accent">PRO</span></span></a>
+            <a href="index.html" class="logo" aria-label="MLBB Pro Guides Home">
+                <span>⚔️</span>
+                <span class="logo-text">MLBB<span class="accent">PRO</span></span>
+            </a>
+
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="tier-list.html" class="nav-link">Tier List</a></li>
                 <li><a href="heroes.html" class="nav-link active">Heroes</a></li>
-                <li><a href="builds.html" class="nav-link">Builds</a></li>
+                <li><a href="counter.html" class="nav-link">Counter</a></li>
+                <li><a href="random.html" class="nav-link">🎲</a></li>
             </ul>
+
             <a href="about.html" class="btn btn-glow">📧 Contact</a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <section class="tier-section">
         <div class="container">
-            <header class="page-header" style="text-align:center; margin-bottom:30px;">
+            <!-- Page Header -->
+            <header class="page-header fade-in">
+                <div class="badge">🦸 Hero Database</div>
                 <h1>All <span class="gradient-text">Heroes</span></h1>
-                <p style="color:var(--text-muted);">Click any hero to view their recommended build</p>
+                <p>Click any hero to view their recommended build, counters, and pro tips</p>
             </header>
 
             <!-- Search -->
-            <div class="search-box">
-                <input type="text" placeholder="Search heroes..." id="heroSearch">
+            <div class="search-box fade-in">
+                <input type="text" placeholder="Search heroes by name or role..." id="heroSearch" autocomplete="off">
             </div>
 
             <!-- Role Filters -->
-            <div class="filters">
-                <button class="filter-btn active" data-role="all">All</button>
+            <div class="filters fade-in">
+                <button class="filter-btn active" data-role="all">All Heroes</button>
                 <button class="filter-btn" data-role="tanks">🛡️ Tank</button>
                 <button class="filter-btn" data-role="fighters">⚔️ Fighter</button>
                 <button class="filter-btn" data-role="assassins">🗡️ Assassin</button>
@@ -78,15 +104,31 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand"><span>⚔️</span> MLBB<span class="accent">PRO</span>
+                <div class="footer-brand">
+                    <span>⚔️</span> MLBB<span class="accent">PRO</span>
                     <p>The ultimate MLBB resource</p>
                 </div>
-                <div class="footer-links"><a href="tier-list.html">Tier List</a><a href="heroes.html">Heroes</a><a
-                        href="builds.html">Builds</a></div>
+                <div class="footer-links">
+                    <a href="tier-list.html">Tier List</a>
+                    <a href="heroes.html">Heroes</a>
+                    <a href="builds.html">Builds</a>
+                    <a href="about.html">About</a>
+                </div>
             </div>
+
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@TheHistoryCode125" target="_blank" rel="noopener">
+                    ▶️ YouTube
+                </a>
+                <a href="https://discord.gg/K3JYAMU" target="_blank" rel="noopener">
+                    💬 Discord
+                </a>
+            </div>
+
             <p class="copyright">&copy; 2025 MLBB Pro Guides. Not affiliated with Moonton.</p>
         </div>
     </footer>

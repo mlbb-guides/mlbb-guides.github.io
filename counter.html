@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>MLBB Counter Picker - Find Hero Counters & Win Draft | MLBB Pro</title>
+    <meta name="description"
+        content="Never lose draft again! Find the perfect counter picks for any Mobile Legends hero. Our counter picker shows you who counters who and why.">
+    <meta name="keywords"
+        content="MLBB counter picks, Mobile Legends counters, hero counters, draft guide, who counters Fanny, who counters Ling">
+    <link rel="canonical" href="https://mlbb-guides.github.io/counter.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MLBB Counter Picker - Win Every Draft">
+    <meta property="og:description" content="Find the perfect counter picks for any Mobile Legends hero.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mlbb-guides.github.io/counter.html">
+    <meta property="og:image" content="https://mlbb-guides.github.io/images/og-banner.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#6366f1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="/avatar.png">
+
+    <style>
+        .counter-tool {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-selector {
+            background: var(--gradient-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .hero-selector h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-select-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+        }
+
+        .hero-select-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .hero-select-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
+        .hero-select-btn.selected {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .hero-select-btn img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .hero-select-btn span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .counter-result {
+            display: none;
+            background: var(--gradient-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .counter-result.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            background: rgba(99, 102, 241, 0.1);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            border: 3px solid var(--primary);
+        }
+
+        .result-header h2 {
+            margin: 0 0 8px 0;
+        }
+
+        .counter-sections {
+            padding: 24px;
+        }
+
+        .counter-section {
+            margin-bottom: 24px;
+        }
+
+        .counter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .counter-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .counter-section h3.strong {
+            color: #22c55e;
+        }
+
+        .counter-section h3.weak {
+            color: #ef4444;
+        }
+
+        .counter-section h3.tips {
+            color: #eab308;
+        }
+
+        .counter-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .counter-tag {
+            padding: 10px 18px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .counter-tag.strong {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .counter-tag.weak {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .counter-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        .tips-box {
+            padding: 20px;
+            background: rgba(234, 179, 8, 0.1);
+            border-left: 4px solid #eab308;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .quick-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+    </div>
+    <div class="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>⚔️</span>
+                <span class="logo-text">MLBB<span class="accent">PRO</span></span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="tier-list.html" class="nav-link">Tier List</a></li>
+                <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+                <li><a href="builds.html" class="nav-link">Builds</a></li>
+                <li><a href="counter.html" class="nav-link active">Counter</a></li>
+            </ul>
+
+            <a href="about.html" class="btn btn-glow">📧 Contact</a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="tier-section">
+        <div class="container">
+            <!-- Page Header -->
+            <header class="page-header fade-in">
+                <div class="badge">🔄 Win Every Draft</div>
+                <h1>Counter <span class="gradient-text">Picker</span></h1>
+                <p>Select an enemy hero to find the best counter picks</p>
+            </header>
+
+            <div class="counter-tool">
+                <!-- Hero Selector -->
+                <div class="hero-selector fade-in">
+                    <h2>🎯 Enemy Picked...</h2>
+
+                    <!-- Quick Filter -->
+                    <div class="quick-filter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="assassins">🗡️ Assassin</button>
+                        <button class="filter-btn" data-filter="fighters">⚔️ Fighter</button>
+                        <button class="filter-btn" data-filter="tanks">🛡️ Tank</button>
+                        <button class="filter-btn" data-filter="mages">🔮 Mage</button>
+                        <button class="filter-btn" data-filter="marksmen">🏹 Marksman</button>
+                        <button class="filter-btn" data-filter="supports">💚 Support</button>
+                    </div>
+
+                    <div class="hero-select-grid" id="heroSelectGrid">
+                        <!-- Heroes populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Counter Result -->
+                <div class="counter-result" id="counterResult">
+                    <div class="result-header">
+                        <img id="selectedHeroImg" src="" alt="">
+                        <div>
+                            <h2 id="selectedHeroName">Select a Hero</h2>
+                            <p style="color:var(--text-muted);">Counter picks and strategies</p>
+                        </div>
+                    </div>
+                    <div class="counter-sections">
+                        <div class="counter-section">
+                            <h3 class="strong">✅ Pick These to Counter</h3>
+                            <div class="counter-list" id="countersList"></div>
+                        </div>
+                        <div class="counter-section">
+                            <h3 class="weak">❌ This Hero is Weak Against</h3>
+                            <div class="counter-list" id="weakAgainstList"></div>
+                        </div>
+                        <div class="counter-section">
+                            <h3 class="tips">💡 Pro Tips</h3>
+                            <div class="tips-box" id="counterTips"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span>⚔️</span> MLBB<span class="accent">PRO</span>
+                    <p>The ultimate MLBB resource</p>
+                </div>
+                <div class="footer-links">
+                    <a href="tier-list.html">Tier List</a>
+                    <a href="heroes.html">Heroes</a>
+                    <a href="builds.html">Builds</a>
+                    <a href="counter.html">Counter</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 MLBB Pro Guides. Not affiliated with Moonton.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Populate hero grid
+        function initCounterPicker() {
+            const grid = document.getElementById('heroSelectGrid');
+            const allHeroes = [];
+
+            Object.entries(HEROES_DATA).forEach(([roleId, heroes]) => {
+                heroes.forEach(hero => {
+                    allHeroes.push({ ...hero, roleId });
+                });
+            });
+
+            allHeroes.forEach(hero => {
+                const btn = document.createElement('button');
+                btn.className = 'hero-select-btn';
+                btn.dataset.hero = hero.name;
+                btn.dataset.role = hero.roleId;
+                btn.innerHTML = `
+                    <img src="${hero.img}" alt="${hero.name}" onerror="this.src='https://ui-avatars.com/api/?name=${hero.name}&background=6366f1&color=fff'">
+                    <span>${hero.name}</span>
+                `;
+                btn.onclick = () => selectHero(hero);
+                grid.appendChild(btn);
+            });
+
+            // Filter buttons
+            document.querySelectorAll('.quick-filter .filter-btn').forEach(btn => {
+                btn.onclick = () => {
+                    document.querySelectorAll('.quick-filter .filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+
+                    document.querySelectorAll('.hero-select-btn').forEach(heroBtn => {
+                        if (filter === 'all' || heroBtn.dataset.role === filter) {
+                            heroBtn.style.display = '';
+                        } else {
+                            heroBtn.style.display = 'none';
+                        }
+                    });
+                };
+            });
+        }
+
+        function selectHero(hero) {
+            // Update selection UI
+            document.querySelectorAll('.hero-select-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelector(`[data-hero="${hero.name}"]`)?.classList.add('selected');
+
+            // Show result
+            const result = document.getElementById('counterResult');
+            result.classList.add('active');
+
+            document.getElementById('selectedHeroImg').src = hero.img;
+            document.getElementById('selectedHeroName').textContent = hero.name;
+
+            // Get counter data
+            const counterData = COUNTER_DATA[hero.name] || {
+                counters: ['Check builds page for counters'],
+                counteredBy: ['Check builds page for weaknesses'],
+                tips: `Build guide and counters for ${hero.name} coming soon! Check the builds page for more info.`
+            };
+
+            // Populate counters
+            const countersList = document.getElementById('countersList');
+            countersList.innerHTML = counterData.counters.map(c =>
+                `<span class="counter-tag strong">${c}</span>`
+            ).join('');
+
+            // Populate weak against
+            const weakList = document.getElementById('weakAgainstList');
+            weakList.innerHTML = counterData.counteredBy.map(c =>
+                `<span class="counter-tag weak">${c}</span>`
+            ).join('');
+
+            // Populate tips
+            document.getElementById('counterTips').textContent = counterData.tips;
+
+            // Scroll to result
+            result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        initCounterPicker();
+    </script>
+</body>
+
+</html>

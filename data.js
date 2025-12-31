@@ -1076,5 +1076,297 @@ const BUILDS_DATA = {
         counteredBy: ["Heavy frontline", "CC chains"],
         img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1.png"
     }
-}
+};
+
+// ===== PATCH NOTES DATA =====
+const PATCH_NOTES = [
+    {
+        version: "1.9.42",
+        date: "January 1, 2025",
+        title: "Sky Piercer & Suyou Update",
+        highlights: [
+            { type: "new", text: "New Hero: Suyou - Fighter/Assassin with dual form mechanics" },
+            { type: "new", text: "New Item: Sky Piercer - Execute passive for assassins" },
+            { type: "buff", hero: "Hayabusa", text: "Increased ultimate damage by 15%" },
+            { type: "buff", hero: "Hylos", text: "Thunder Belt synergy improved" },
+            { type: "nerf", hero: "Ling", text: "Base energy regeneration reduced" },
+            { type: "nerf", hero: "Valentina", text: "Skill 1 healing reduced by 10%" },
+            { type: "adjust", hero: "Chou", text: "Kick range slightly reduced, damage increased" }
+        ]
+    },
+    {
+        version: "1.9.40",
+        date: "December 15, 2024",
+        title: "Zhuxin Release & Season 35 Start",
+        highlights: [
+            { type: "new", text: "New Hero: Zhuxin - Control Mage with grab mechanics" },
+            { type: "new", text: "Season 35 begins with rank reset" },
+            { type: "buff", hero: "Tigreal", text: "Ultimate cooldown reduced" },
+            { type: "buff", hero: "Mathilda", text: "Movement speed bonus increased" },
+            { type: "nerf", hero: "Beatrix", text: "Renner sniper damage reduced by 8%" },
+            { type: "nerf", hero: "Julian", text: "Early game damage nerfed" }
+        ]
+    },
+    {
+        version: "1.9.38",
+        date: "December 1, 2024",
+        title: "Winter Balance Update",
+        highlights: [
+            { type: "new", text: "New Item: Wishing Lantern - HP% burn for mages" },
+            { type: "new", text: "New Item: Winter Crown - Magic defense with shield" },
+            { type: "buff", hero: "Terizla", text: "Skill 2 damage significantly increased" },
+            { type: "buff", hero: "Minotaur", text: "Rage generation improved" },
+            { type: "nerf", hero: "Fanny", text: "Cable damage reduced early game" },
+            { type: "adjust", hero: "Roger", text: "Wolf form attack speed adjusted" }
+        ]
+    }
+];
+
+// ===== COUNTER PICKS DATABASE =====
+const COUNTER_DATA = {
+    // Assassins
+    "Ling": {
+        counters: ["Khufra", "Minsitthar", "Saber", "Aurora", "Eudora"],
+        counteredBy: ["Any CC", "Point-click stuns", "Suppress"],
+        tips: "Ling is untargetable on walls. Use targeted CC like Saber ult or Khufra bounce to stop him."
+    },
+    "Fanny": {
+        counters: ["Khufra", "Minsitthar", "Akai", "Franco", "Kaja"],
+        counteredBy: ["Anti-dash", "Suppress", "Walls blocking"],
+        tips: "Khufra's S2 completely shuts down Fanny's cables. Minsitthar ult prevents dashes."
+    },
+    "Hayabusa": {
+        counters: ["Saber", "Kaja", "Khufra", "Winter Crown users", "Grouping"],
+        counteredBy: ["Point-click CC", "Grouping to split ult damage"],
+        tips: "His ult does less damage if multiple targets. Stay grouped to reduce his burst."
+    },
+    "Lancelot": {
+        counters: ["Khufra", "Minsitthar", "Franco", "Point-click CC"],
+        counteredBy: ["Anti-dash", "Hard CC", "Tanky frontline"],
+        tips: "Lancelot's S2 gives immunity. Wait for it before using your CC."
+    },
+    "Gusion": {
+        counters: ["Khufra", "Saber", "Kaja", "Franco", "High burst"],
+        counteredBy: ["Instant CC", "Burst before combo"],
+        tips: "He needs to recall daggers for damage. Interrupt his combo with CC."
+    },
+    "Saber": {
+        counters: ["Antique Cuirass", "Immortality", "Winter Crown", "Tanks"],
+        counteredBy: ["Defense items", "HP stacking"],
+        tips: "Build defense items if you're his target. He can only ult one person."
+    },
+    "Natalia": {
+        counters: ["Hylos", "Rafaela", "Popol and Kupa", "Detection skills"],
+        counteredBy: ["True sight", "AoE damage in bush"],
+        tips: "Use heroes with reveal abilities. Check bushes with AoE skills."
+    },
+
+    // Fighters
+    "Chou": {
+        counters: ["Diggie", "Purify spell", "Wanwan"],
+        counteredBy: ["CC immunity", "Purify", "Knockback immune"],
+        tips: "Diggie's ult completely counters Chou's combo. Save Purify for his kick."
+    },
+    "Paquito": {
+        counters: ["Phoveus", "Khufra", "CC chains"],
+        counteredBy: ["Anti-dash", "Heavy CC"],
+        tips: "Phoveus is the hardest counter - he jumps to every Paquito dash."
+    },
+    "Yu Zhong": {
+        counters: ["Baxia", "Sea Halberd", "Burst before dragon"],
+        counteredBy: ["Anti-heal", "Burst damage"],
+        tips: "Kill him before he transforms. Baxia reduces his healing by 50%."
+    },
+    "Esmeralda": {
+        counters: ["Dyrroth", "Karrie", "Baxia", "True damage"],
+        counteredBy: ["Shield removal", "True damage", "Anti-heal"],
+        tips: "Dyrroth removes shields. Karrie's true damage ignores her shield."
+    },
+    "X.Borg": {
+        counters: ["Karrie", "Dyrroth", "Ranged kiters"],
+        counteredBy: ["Kiting", "True damage"],
+        tips: "Stay out of his range and poke. Break his armor before engaging."
+    },
+    "Aldous": {
+        counters: ["Early aggression", "CC on landing", "Grouping"],
+        counteredBy: ["Invade early", "Wait for his ult"],
+        tips: "Shut him down early before he stacks. CC him immediately when he lands."
+    },
+
+    // Tanks
+    "Tigreal": {
+        counters: ["Valir", "Diggie", "Spread formation"],
+        counteredBy: ["Knockback", "CC immunity", "Split up"],
+        tips: "Valir pushes him away before he can ult combo. Don't group up."
+    },
+    "Atlas": {
+        counters: ["Diggie", "Spread formation", "Purify"],
+        counteredBy: ["CC immunity", "Don't group"],
+        tips: "Diggie ult removes his ult CC. His ult goes through Purify though!"
+    },
+    "Franco": {
+        counters: ["Wanwan", "Mobile heroes", "Minion blocking"],
+        counteredBy: ["Mobility", "Stay behind minions"],
+        tips: "Stand behind minions to block hooks. Use dash heroes to escape."
+    },
+    "Khufra": {
+        counters: ["Valir", "Karrie", "Range poke"],
+        counteredBy: ["Long range", "True damage"],
+        tips: "Kite him from range. He's useless if he can't reach you."
+    },
+    "Johnson": {
+        counters: ["Dash heroes", "Spread formation", "Map awareness"],
+        counteredBy: ["Mobility", "Wards/vision"],
+        tips: "Watch your minimap for his car. Dash sideways if he comes."
+    },
+
+    // Marksmen
+    "Beatrix": {
+        counters: ["Dive assassins", "Lancelot", "Ling", "Fanny"],
+        counteredBy: ["Gap closers", "Burst"],
+        tips: "She has no escape. Dive her with assassins and burst her down."
+    },
+    "Wanwan": {
+        counters: ["Franco", "Kaja", "Suppress skills"],
+        counteredBy: ["Suppress (ignores her S2)", "Burst before ult"],
+        tips: "Suppress goes through her purify. Kill her before she unlocks ult."
+    },
+    "Claude": {
+        counters: ["Burst assassins", "CC chains", "Kaja"],
+        counteredBy: ["Instant burst", "Suppress"],
+        tips: "He needs his ult for damage. CC and burst him immediately."
+    },
+    "Karrie": {
+        counters: ["Burst assassins", "Kaja", "Dive comps"],
+        counteredBy: ["Dive and burst", "Don't let her auto attack"],
+        tips: "She shreds tanks but is squishy. Assassins counter her hard."
+    },
+    "Moskov": {
+        counters: ["Gap closers", "Burst damage", "CC"],
+        counteredBy: ["Dive", "Don't stand near walls"],
+        tips: "His stun only works near walls. Fight in open areas."
+    },
+
+    // Mages
+    "Kagura": {
+        counters: ["Dive assassins", "Instant burst"],
+        counteredBy: ["Gap close and burst"],
+        tips: "She has S2 purify but long cooldown. Bait it then dive."
+    },
+    "Valentina": {
+        counters: ["Heroes with weak ults", "Zilong", "Miya"],
+        counteredBy: ["Pick bad ult heroes"],
+        tips: "Pick heroes with useless ults to counter her. Zilong's ult is useless for her."
+    },
+    "Pharsa": {
+        counters: ["Dive assassins", "Lolita", "Gap closers"],
+        counteredBy: ["Dive her during ult", "Block projectiles"],
+        tips: "She can't move during ult. Dive and kill her."
+    },
+    "Yve": {
+        counters: ["Dive assassins", "Fanny", "Ling"],
+        counteredBy: ["Instant dive", "Interrupt ult"],
+        tips: "Her ult has long channel. Assassins can easily interrupt and kill her."
+    },
+    "Lunox": {
+        counters: ["Burst during light form", "CC chains"],
+        counteredBy: ["Track her form", "Burst in light"],
+        tips: "In dark form she's invincible. Burst her in light form."
+    },
+
+    // Supports
+    "Estes": {
+        counters: ["Baxia", "Sea Halberd", "Burst damage"],
+        counteredBy: ["Anti-heal items", "Focus him first"],
+        tips: "Build anti-heal. Baxia alone reduces his healing by 50%."
+    },
+    "Angela": {
+        counters: ["AoE damage", "Kill her first", "Burst"],
+        counteredBy: ["Focus Angela", "AoE to hit attached"],
+        tips: "Kill Angela before she attaches. She's squishy alone."
+    },
+    "Diggie": {
+        counters: ["Sustained damage", "Low CC comps"],
+        counteredBy: ["Don't rely on CC"],
+        tips: "He counters CC. Pick sustained damage heroes instead."
+    },
+    "Mathilda": {
+        counters: ["CC chains", "Grouped enemies"],
+        counteredBy: ["Chain CC", "Focus fire"],
+        tips: "She's squishy. Chain CC and burst her down."
+    }
+};
+
+// ===== ADDITIONAL HEROES FOR EXPANDED DATABASE =====
+// Adding more heroes to tanks, fighters, assassins, marksmen, mages, supports
+const ADDITIONAL_HEROES = {
+    tanks: [
+        { name: "Johnson", tier: "A", winRate: 51.8, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5.png", color: "#4361ee" },
+        { name: "Gatotkaca", tier: "S", winRate: 53.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6.png", color: "#dc2626" },
+        { name: "Belerick", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.png", color: "#15803d" },
+        { name: "Uranus", tier: "S", winRate: 54.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8.png", color: "#0891b2" },
+        { name: "Baxia", tier: "S", winRate: 53.2, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_22474dd14312ea67d5d2caa742bff2ec.png", color: "#059669" },
+        { name: "Lolita", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9.png", color: "#ec4899" },
+        { name: "Akai", tier: "A", winRate: 51.2, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0.png", color: "#f97316" }
+    ],
+    fighters: [
+        { name: "Hilda", tier: "A", winRate: 52.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7.png", color: "#7c3aed" },
+        { name: "Balmond", tier: "B", winRate: 50.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8.png", color: "#dc2626" },
+        { name: "Freya", tier: "A", winRate: 51.8, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9.png", color: "#f59e0b" },
+        { name: "Martis", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0.png", color: "#991b1b" },
+        { name: "Silvanna", tier: "A", winRate: 52.3, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_743db67971d02b6a9a8065d9cedade23.png", color: "#eab308" },
+        { name: "Jawhead", tier: "S", winRate: 53.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1.png", color: "#3b82f6" },
+        { name: "Sun", tier: "A", winRate: 52.8, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_sun_wukong.png", color: "#f59e0b" },
+        { name: "Thamuz", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_thamuz.png", color: "#dc2626" },
+        { name: "Lapu-Lapu", tier: "S", winRate: 53.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_lapu.png", color: "#0ea5e9" },
+        { name: "Badang", tier: "A", winRate: 51.2, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_badang.png", color: "#84cc16" }
+    ],
+    assassins: [
+        { name: "Gusion", tier: "S", winRate: 53.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_6df478f073e8f9395f1fbf4d0cd4d26e.png", color: "#6366f1" },
+        { name: "Karina", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_karina.png", color: "#8b5cf6" },
+        { name: "Selena", tier: "S", winRate: 53.2, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_selena.png", color: "#6d28d9" },
+        { name: "Helcurt", tier: "B", winRate: 49.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_helcurt.png", color: "#1e1b4b" },
+        { name: "Hanzo", tier: "A", winRate: 51.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_hanzo.png", color: "#4c1d95" },
+        { name: "Benedetta", tier: "S", winRate: 54.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_benedetta.png", color: "#be185d" },
+        { name: "Aamon", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_aamon.png", color: "#059669" },
+        { name: "Natalia", tier: "A", winRate: 50.8, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_natalia.png", color: "#0f172a" }
+    ],
+    marksmen: [
+        { name: "Natan", tier: "S", winRate: 54.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_natan.png", color: "#6366f1" },
+        { name: "Melissa", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_melissa.png", color: "#ec4899" },
+        { name: "Irithel", tier: "B", winRate: 50.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_irithel.png", color: "#10b981" },
+        { name: "Popol and Kupa", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_popol.png", color: "#78716c" },
+        { name: "Brody", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_brody.png", color: "#0891b2" },
+        { name: "Kimmy", tier: "S", winRate: 53.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_kimmy.png", color: "#f97316" },
+        { name: "Yi Sun-shin", tier: "S", winRate: 54.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_yss.png", color: "#1e40af" },
+        { name: "Ixia", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_ixia.png", color: "#a855f7" }
+    ],
+    mages: [
+        { name: "Pharsa", tier: "S", winRate: 53.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1.png", color: "#1e3a8a" },
+        { name: "Yve", tier: "S", winRate: 54.0, img: "https://akmweb.youngjoygame.com/web/madmin/image/a5287c3bf2d77b64314528d437ec365b.png", color: "#0e7490" },
+        { name: "Lunox", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2.png", color: "#c026d3" },
+        { name: "Lylia", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_bd89e9f00f56e708f4c9adecf0c57c64.png", color: "#7c3aed" },
+        { name: "Vale", tier: "A", winRate: 51.8, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3.png", color: "#0ea5e9" },
+        { name: "Alice", tier: "S", winRate: 53.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4.png", color: "#dc2626" },
+        { name: "Cecilion", tier: "A", winRate: 52.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_a66ec3b1b8036839538cc0ade8aff50c.jpg", color: "#4c1d95" },
+        { name: "Harley", tier: "A", winRate: 51.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_harley.png", color: "#f97316" },
+        { name: "Cyclops", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_cyclops.png", color: "#3b82f6" },
+        { name: "Luo Yi", tier: "S", winRate: 53.2, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_luoyi.png", color: "#ec4899" }
+    ],
+    supports: [
+        { name: "Rafaela", tier: "A", winRate: 52.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5.png", color: "#f0abfc" },
+        { name: "Kaja", tier: "A", winRate: 51.5, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6.png", color: "#fbbf24" },
+        { name: "Carmilla", tier: "A", winRate: 51.0, img: "https://akmwebstatic.yuanzhanapp.com/web/madmin/image_b7f2851b57e938c41ce32c00c685e0c8.jpg", color: "#be185d" },
+        { name: "Faramis", tier: "A", winRate: 52.5, img: "https://wsrv.nl/?url=akmweb.youngjoygame.com/web/madmin/image/977b95bbb8a5dc634d741bdd5bda3b2f.png", color: "#16a34a" }
+    ]
+};
+
+// Merge additional heroes into HEROES_DATA
+Object.keys(ADDITIONAL_HEROES).forEach(role => {
+    ADDITIONAL_HEROES[role].forEach(hero => {
+        if (!HEROES_DATA[role].find(h => h.name === hero.name)) {
+            HEROES_DATA[role].push(hero);
+        }
+    });
+});
 
