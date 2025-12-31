@@ -1,0 +1,15 @@
+# robots.txt for MLBB Pro Guides
+# https://mlbb-guides.github.io/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mlbb-guides.github.io/sitemap.xml
+
+# Disallow admin/internal paths (if any)
+Disallow: /.git/
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
