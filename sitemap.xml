@@ -44,12 +44,4 @@
         <priority>0.5</priority>
     </url>
     
-    <!-- Mortgage Calculator - Utility Tool -->
-    <url>
-        <loc>https://mlbb-guides.github.io/mortgage-calculator.html</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
 </urlset>
