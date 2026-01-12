@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mlbb-guides.github.io/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
